@@ -1,0 +1,61 @@
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+}
+
+.header {
+    padding-top: 5px;
+}
+
+.left-area {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    bottom: 20px;
+    width: 260px;
+    border:solid 1px #CCCCCC;
+    overflow-y: scroll;
+}
+.main-area {
+    position: absolute;
+    top: 70px;
+    bottom: 20px;
+    left:300px;
+    overflow-y: scroll;
+    width:300px;
+}
+
+.right-area {
+    position: absolute;
+    top: 70px;
+    bottom: 20px;
+    left:650px;
+    overflow-y: scroll;
+    width:270px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+    margin-top: 0px;
+}
+
+label {
+    display:block;
+}
+
+input, textarea {
+    border:1px solid #ccc;
+    min-height:30px;
+    outline: none;
+}
+
+button {
+    padding:6px;
+}
+
+.main-area input {
+    margin-bottom:15px;
+    margin-top:5px;
+    width:280px;
+}

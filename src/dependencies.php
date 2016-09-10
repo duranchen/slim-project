@@ -1,9 +1,15 @@
 <?php
 // DIC configuration
 
+use \App\Controller\WidgetController;
+
 $container = $app->getContainer();
 
 // view renderer
+/**
+ * @param $c
+ * @return \Slim\Views\PhpRenderer
+ */
 $container['renderer'] = function ($c) {
     $settings = $c->get('settings')['renderer'];
     return new Slim\Views\PhpRenderer($settings['template_path']);
@@ -18,20 +24,16 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-// Service factory for the ORM
-$container['db'] = function ($container) {
-    $capsule = new \Illuminate\Database\Capsule\Manager;
-    $capsule->addConnection($container['settings']['db']);
+/**
+ * @param $c
+ * @return PDO
+ */
+$container['pdo'] = function ($c) {
 
-    $capsule->setAsGlobal();
-    $capsule->bootEloquent();
+    $db = $c['settings']['db'];
 
-    return $capsule;
+    $pdo = new PDO('mysql:host='.$db['host'].';dbname='.$db['database'], $db['username'], $db['password']);
+
+    return $pdo;
 };
 
-$container[App\WidgetController::class] = function ($c) {
-    $view = $c->get('view');
-    $logger = $c->get('logger');
-    $table = $c->get('db')->table('books');
-    return new \App\WidgetController($view, $logger, $table);
-};

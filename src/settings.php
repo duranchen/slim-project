@@ -18,9 +18,9 @@ return [
         'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'books',
+            'database' => 'cellar',
             'username' => 'root',
-            'password' => '1',
+            'password' => '',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
